@@ -1,0 +1,76 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle with gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2563EB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0EA5E9;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main background circle -->
+  <circle cx="100" cy="100" r="90" fill="url(#bgGradient)" filter="url(#glow)"/>
+  
+  <!-- Inner accessibility symbol -->
+  <g transform="translate(100, 100)">
+    <!-- Central figure representing a person -->
+    <circle cx="0" cy="-25" r="12" fill="white" opacity="0.95"/>
+    
+    <!-- Body/torso -->
+    <rect x="-8" y="-10" width="16" height="25" rx="8" fill="white" opacity="0.95"/>
+    
+    <!-- Arms extending outward (representing inclusivity) -->
+    <rect x="-25" y="-5" width="20" height="6" rx="3" fill="white" opacity="0.95"/>
+    <rect x="5" y="-5" width="20" height="6" rx="3" fill="white" opacity="0.95"/>
+    
+    <!-- Legs -->
+    <rect x="-6" y="15" width="5" height="20" rx="2.5" fill="white" opacity="0.95"/>
+    <rect x="1" y="15" width="5" height="20" rx="2.5" fill="white" opacity="0.95"/>
+    
+    <!-- Accessibility symbols around the figure -->
+    <!-- Eye symbol (visual accessibility) -->
+    <g transform="translate(-35, -35)">
+      <ellipse cx="0" cy="0" rx="8" ry="5" fill="none" stroke="white" stroke-width="2.5" opacity="0.9"/>
+      <circle cx="0" cy="0" r="3" fill="white" opacity="0.9"/>
+    </g>
+    
+    <!-- Ear symbol (auditory accessibility) -->
+    <g transform="translate(35, -35)">
+      <path d="M-4,-6 Q-8,-6 -8,0 Q-8,6 -4,6" fill="none" stroke="white" stroke-width="2.5" opacity="0.9"/>
+      <path d="M-2,-3 Q-4,-3 -4,0 Q-4,3 -2,3" fill="none" stroke="white" stroke-width="2" opacity="0.9"/>
+    </g>
+    
+    <!-- Hand/touch symbol (motor accessibility) -->
+    <g transform="translate(-35, 35)">
+      <rect x="-3" y="-6" width="6" height="8" rx="3" fill="white" opacity="0.9"/>
+      <rect x="-5" y="-2" width="3" height="6" rx="1.5" fill="white" opacity="0.9"/>
+      <rect x="2" y="-2" width="3" height="6" rx="1.5" fill="white" opacity="0.9"/>
+    </g>
+    
+    <!-- Brain/cognitive symbol -->
+    <g transform="translate(35, 35)">
+      <path d="M-6,-4 Q-8,-6 -4,-6 Q0,-8 4,-6 Q8,-6 6,-4 Q8,0 6,4 Q4,6 0,6 Q-4,6 -6,4 Q-8,0 -6,-4 Z" 
+            fill="white" opacity="0.9"/>
+      <circle cx="-2" cy="-1" r="1" fill="url(#bgGradient)"/>
+      <circle cx="2" cy="1" r="1" fill="url(#bgGradient)"/>
+    </g>
+  </g>
+  
+  <!-- Outer ring with subtle animation -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="white" stroke-width="2" opacity="0.3">
+    <animate attributeName="stroke-dasharray" values="0 535;267 268;0 535" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Text label (optional - can be removed for icon-only version) -->
+  <text x="100" y="175" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="600" opacity="0.9">
+    UniAccess
+  </text>
+</svg>

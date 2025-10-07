@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "UniAccess",
+  "description": "Comprehensive accessibility features for any website - dark mode, dyslexia fonts, text-to-speech, and more",
+  "version": "1.0.0",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-scripts/content.js"],
+      "css": ["content-scripts/accessibility.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_title": "Accessibility Tools",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.svg",
+      "128": "icons/icon128.svg"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.svg",
+    "128": "icons/icon128.svg"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["content-scripts/accessibility.css"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

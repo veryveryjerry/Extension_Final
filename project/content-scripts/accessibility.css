@@ -1,0 +1,151 @@
+:root {
+  --color-bg-base: #121212;
+  --color-surface: #1E1E1E;
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #B3B3B3;
+  --color-text-disabled: #6B6B6B;
+  --color-accent: #4FC3F7;
+  --color-accent-hover: #81D4FA;
+  --color-success: #66BB6A;
+  --color-warning: #FFA726;
+  --color-error: #EF5350;
+  --color-border: #2C2C2C;
+  --color-input-bg: #1A1A1A;
+  --color-input-border: #333333;
+  --color-scrollbar-thumb: #555555;
+}
+
+/* Accessibility enhancements that don't conflict with site styles */
+
+/* High contrast mode helpers */
+.accessibility-high-contrast {
+  filter: contrast(150%) !important;
+}
+
+/* Dyslexia-friendly font improvements */
+.accessibility-dyslexia-font * {
+  font-family: 'Comic Sans MS', 'OpenDyslexic', cursive, sans-serif !important;
+  letter-spacing: 0.05em !important;
+  line-height: 1.6 !important;
+  word-spacing: 0.1em !important;
+}
+
+/* Text size scaling */
+.accessibility-text-small { font-size: 14px !important; }
+.accessibility-text-medium { font-size: 16px !important; }
+.accessibility-text-large { font-size: 18px !important; }
+.accessibility-text-xl { font-size: 20px !important; }
+
+/* Color blind filters */
+.accessibility-protanopia {
+  filter: sepia(100%) saturate(50%) hue-rotate(320deg) !important;
+}
+
+.accessibility-deuteranopia {
+  filter: sepia(100%) saturate(60%) hue-rotate(60deg) !important;
+}
+
+.accessibility-tritanopia {
+  filter: sepia(100%) saturate(80%) hue-rotate(180deg) !important;
+}
+
+/* Hover to speak highlighting */
+.accessibility-hover-speak-active {
+  background-color: rgba(79, 195, 247, 0.3) !important;
+  outline: 2px solid #4FC3F7 !important;
+  outline-offset: 2px !important;
+  border-radius: 3px !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 0 8px rgba(79, 195, 247, 0.5) !important;
+}
+
+/* Dark mode base styles */
+.accessibility-dark-mode {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+.accessibility-dark-mode img,
+.accessibility-dark-mode video,
+.accessibility-dark-mode iframe,
+.accessibility-dark-mode canvas,
+.accessibility-dark-mode svg,
+.accessibility-dark-mode embed,
+.accessibility-dark-mode object {
+  filter: invert(1) hue-rotate(180deg) !important;
+}
+
+/* Focus improvements for keyboard navigation */
+*:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Skip links for screen readers */
+.accessibility-skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-bg-base);
+  color: var(--color-text-primary);
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 10000;
+}
+
+.accessibility-skip-link:focus {
+  top: 6px;
+  background: var(--color-accent);
+  color: var(--color-bg-base);
+}
+
+/* Reading guide styles (for future enhancement) */
+.accessibility-reading-guide {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--color-accent-hover);
+  z-index: 9999;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Preserve certain elements from filters */
+[data-accessibility-preserve],
+.accessibility-preserve {
+  filter: none !important;
+}
+
+/* Ensure text remains readable */
+.accessibility-ensure-readable {
+  color: inherit !important;
+  background-color: transparent !important;
+}
+
+/* Animation reduction for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode improvements */
+@media (prefers-contrast: high) {
+  * {
+    border-color: currentColor !important;
+  }
+}
+
+body, .accessibility-root {
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 400 !important;
+}
+
+h1, h2, h3, h4, h5, h6, .accessibility-heading {
+  font-family: 'Playfair Display', serif !important;
+  font-weight: 600 !important;
+}
